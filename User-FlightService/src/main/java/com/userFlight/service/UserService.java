@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.userFlight.entity.SearchEntity;
 import com.userFlight.entity.UserEntity;
+import com.userFlight.error.exception.FlightNotFoundException;
 import com.userFlight.repository.BookingRepository;
 import com.userFlight.repository.SearchRepository;
 
@@ -20,8 +21,16 @@ public class UserService {
 	@Autowired
 	private BookingRepository bookRepo;
 	
-	public List<SearchEntity> searchFlight(String start,String end){
-		return repo.findByStartEnd(start, end);
+	public List<SearchEntity> searchFlight(String start,String end) throws FlightNotFoundException{
+		
+		List<SearchEntity> list =repo.findByStartEnd(start, end);
+		if(list.isEmpty()) {
+			throw  new FlightNotFoundException("your search is not found!");
+		}else {
+			return list;
+		}
+			
+		 
 	}
 	
 	public SearchEntity bookFlight(int flightNo){
@@ -36,15 +45,12 @@ public class UserService {
 		}
 	}
 	
-	public UserEntity checkTicket(Long pnr){
-		Optional<UserEntity> optional=bookRepo.findById(pnr);
-		if(optional.isEmpty()) {
-			System.out.println("hiiiiiii");
-			return null;
-		}
-		else {
-			return optional.get();
-
+	public List<UserEntity> checkTicket(String email) throws FlightNotFoundException{
+		List<UserEntity> list=bookRepo.findByEmail(email);
+		if(list.isEmpty()) {
+			throw  new FlightNotFoundException("Enter email id does not exist!");
+		}else {
+			return list;
 		}
 	}
 	
@@ -55,6 +61,7 @@ public class UserService {
 		//user.setPnr(pnr);	
 		 Long pnr = (long) (Math.floor(Math.random()*1000000000));
 		 user.setPnr(pnr);
+		 System.out.println("helooooooo"+user.getPnr());
 		return bookRepo.save(user);
 	}
 	
@@ -66,6 +73,7 @@ public class UserService {
 			return "You enter incorrect PNR number";
 		}
 		bookRepo.save(user);
+		//bookRepo.cancelTicket(pnr);
 		return "Booking of your flight with PNR: "+pnr+" cancel successfully!";
 	}
 }

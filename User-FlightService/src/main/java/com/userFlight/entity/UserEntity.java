@@ -12,6 +12,7 @@ public class UserEntity {
 	//@GeneratedValue(strategy=GenerationType.AUTO)	//,generator="1000000000")
 	@Id
 	private Long pnr;
+	private int flightNo;
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -26,10 +27,11 @@ public class UserEntity {
 	public UserEntity() {
 		super();
 	}
-	public UserEntity(Long pnr, String email, String firstName, String lastName, String gender, int age,
+	public UserEntity(Long pnr, int flightNo,String email, String firstName, String lastName, String gender, int age,
 			int totalSeat, int seatNo, String bookingStatus) {
 		super();
 		this.pnr = pnr;
+		this.flightNo= flightNo;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -44,6 +46,13 @@ public class UserEntity {
 	}
 	public void setPnr(Long pnr) {
 		this.pnr = pnr;
+	}
+		
+	public int getFlightNo() {
+		return flightNo;
+	}
+	public void setFlightNo(int flightNo) {
+		this.flightNo = flightNo;
 	}
 	public String getEmail() {
 		return email;
@@ -93,6 +102,13 @@ public class UserEntity {
 	public void setBookingStatus(String bookingStatus) {
 		this.bookingStatus = bookingStatus;
 	}
+	@Override
+	public String toString() {
+		return "UserEntity [pnr=" + pnr + ", flightNo=" + flightNo + ", email=" + email + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", gender=" + gender + ", age=" + age + ", totalSeat=" + totalSeat
+				+ ", bookingStatus=" + bookingStatus + ", seatNo=" + seatNo + "]";
+	}
+	
 	
 	
 }

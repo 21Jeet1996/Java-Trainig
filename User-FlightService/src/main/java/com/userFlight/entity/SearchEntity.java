@@ -37,6 +37,29 @@ public class SearchEntity {
 	private int nonBussinessSeat;
 	@NotNull(message="This field can't be empty")
 	private double price;
+	private String flightStatus;
+	
+	
+	public SearchEntity() {
+		super();
+	}
+	public SearchEntity(int flightNo,String airline,String start,String end, Date startDate,String startTime, Date endDate,
+			 String endtTime,String sheduleDay, int bussinessSeat, int nonBussinessSeat,double price, String flightStatus) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.start = start;
+		this.end = end;
+		this.startDate = startDate;
+		this.startTime = startTime;
+		this.endDate = endDate;
+		this.endtTime = endtTime;
+		this.sheduleDay = sheduleDay;
+		this.bussinessSeat = bussinessSeat;
+		this.nonBussinessSeat = nonBussinessSeat;
+		this.price = price;
+		this.flightStatus = flightStatus;
+	}
 	public int getFlightNo() {
 		return flightNo;
 	}
@@ -108,6 +131,19 @@ public class SearchEntity {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public String getFlightStatus() {
+		return flightStatus;
+	}
+	public void setFlightStatus(String flightStatus) {
+		this.flightStatus = flightStatus;
+	}
+	@Override
+	public String toString() {
+		return "SearchEntity [flightNo=" + flightNo + ", airline=" + airline + ", start=" + start + ", end=" + end
+				+ ", startDate=" + startDate + ", startTime=" + startTime + ", endDate=" + endDate + ", endtTime="
+				+ endtTime + ", sheduleDay=" + sheduleDay + ", bussinessSeat=" + bussinessSeat + ", nonBussinessSeat="
+				+ nonBussinessSeat + ", price=" + price + ", flightStatus=" + flightStatus + "]";
 	}
 	
 	

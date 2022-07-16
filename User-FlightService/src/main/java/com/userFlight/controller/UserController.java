@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.userFlight.entity.SearchEntity;
 import com.userFlight.entity.UserEntity;
+import com.userFlight.error.exception.FlightNotFoundException;
 import com.userFlight.kafka.model.UserFlight;
 import com.userFlight.service.UserService;
 
+
+//@CrossOrigin(allowedHeaders="*",origins ={"http://localhost:4200", "https://hoppscotch.io/"})//allowedHeaders="*",
 @RestController
 @RequestMapping("/user")
+//@CrossOrigin(allowedHeaders="*",origins ={"http://localhost:4200"}, maxAge = 3600,allowCredentials="false")
 public class UserController {
 	
 	@Autowired 
@@ -39,20 +44,30 @@ public class UserController {
 		return "Welcom user";
 	}
 	
-	@PostMapping("/search")
-	public List<SearchEntity> searchFlight(@RequestBody SearchEntity search){
-	
-		String start=search.getStart();
-		String end=search.getEnd();
+	@GetMapping("/search/{start}/{end}")
+	public List<SearchEntity> searchFlight(@PathVariable String start,@PathVariable String end) throws FlightNotFoundException{
+	//@RequestBody SearchEntity search
+//		String start=search.getStart();
+//		String end=search.getEnd();
+		
+		System.out.println("**** heloo user you are search from: "+start+" and destination is: "+end+" *****");
 		return userService.searchFlight(start,end);
 	}
+//	
+//	@PostMapping("/add")
+//	public UserEntity add(@RequestBody UserEntity user) {
+//		
+//		return userService.bookTicket(user);
+//	}
+//	@PostMapping("/book/{flightNo}")
+	//@CrossOrigin(origins ={"http://localhost:4200/book-flight"})	
 	
-	@PostMapping("/book/{flightNo}")
-	public Long bookTicket(@RequestBody UserEntity user,@PathVariable int flightNo){
+	@PostMapping("/book")
+	public Long bookTicket(@RequestBody UserEntity user){
 		
-		System.out.println("helooooooo"+user.getPnr());
-		
-		String status=(user.getBookingStatus().toUpperCase()).trim();
+		int flightNo=user.getFlightNo();
+		System.out.println("hiiiiiii  "+user.getFlightNo()+"  : "+user.getBookingStatus());
+		String status=("CONFIRM".toUpperCase()).trim();//(user.getBookingStatus().toUpperCase()).trim();
 		String name= (user.getFirstName()).trim()+" "+(user.getLastName()).trim();
 		
 		SimpleDateFormat date=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -61,8 +76,8 @@ public class UserController {
 		user.setBookingStatus(status);
 		
 		SearchEntity searchFlight=userService.bookFlight(flightNo);
-		
-		userService.bookTicket(user);	
+		userService.bookTicket(user);
+			
 		
 		System.out.println("pnr: "+user.getPnr());
 		
@@ -74,14 +89,14 @@ public class UserController {
 		return user.getPnr();
 	}
 	
-	@PutMapping("/cancel/{pnr}")
+	@PutMapping("/updatestatus/{pnr}")
 	public String cancelTicket(@PathVariable Long pnr,@RequestBody UserEntity user) {
 		String bookingStatus=(user.getBookingStatus().toUpperCase()).trim();
 		return userService.cancelFlight(pnr, bookingStatus);
 	}
 	
-	@GetMapping("checkticket/{pnr}")
-	public UserEntity checkTicket(@PathVariable Long pnr) {
-		return userService.checkTicket(pnr);
+	@GetMapping("checkticket/{email}")
+	public List<UserEntity> checkTicket(@PathVariable String email)  throws FlightNotFoundException {
+		return userService.checkTicket(email);
 	}
 }
