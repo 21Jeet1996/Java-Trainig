@@ -1,0 +1,41 @@
+<h3>Flight List</h3>
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="panel-heading" style="text-align: center">
+            <h2>Flight List</h2>
+        </div>
+      <table class="table table-striped" border="1">
+           
+        <thead>
+          <tr>
+            <th>Flight Number</th>
+            <th>Flight Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Runnig Day</th>
+            <th>Flight Status</th>
+            <th>Ticket Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>{{flight.flightNo}}</td>
+            <td>{{flight.airline}}</td>
+            <td>{{flight.start}}</td>
+            <td>{{flight.end}}</td>
+            <td>{{flight.startDate+" "+flight.startTime}}</td>
+            <td>{{flight.endDate+" "+flight.endtTime}}</td>
+            <td>{{flight.sheduleDay}}</td>
+            <td>{{flight.flightStatus}}</td>
+            <td>{{flight.price}}</td>
+            <td><button [routerLink]="['/update-flight',flight.flightNo]"class="btn btn-danger">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

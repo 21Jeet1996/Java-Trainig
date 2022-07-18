@@ -1,0 +1,23 @@
+package com.userFlight.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_Details")
+public class UserEntity {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="1000000000")
+	private String pnr;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String gender;
+	private int age;
+	private int totalSeat;
+	private int seatNo;
+}

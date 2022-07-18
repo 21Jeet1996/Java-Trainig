@@ -1,0 +1,5 @@
+package com.BookManagement.service;
+
+public interface BookRepository extends JPARepository<BookEntity, int>{
+
+}

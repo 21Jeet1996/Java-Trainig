@@ -1,0 +1,5 @@
+package com.flight.security.service;
+
+public class JwtUserDetailsService {
+
+}

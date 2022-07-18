@@ -1,0 +1,15 @@
+package com.APIGateway.swegger;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.google.common.base.Predicate;
+import static com.google.common.base.Predicates.or;
+
+//@Configuration
+//@EnableSwagger2
+public class SwaggerConfig {
+
+	
+
+}

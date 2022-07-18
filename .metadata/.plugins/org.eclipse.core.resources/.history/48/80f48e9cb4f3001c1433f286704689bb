@@ -1,0 +1,10 @@
+package com.BookManagement.Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BookDetails")
+public class BookEntity {
+
+}

@@ -1,0 +1,15 @@
+package com.test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class TestSciCalculator {
+	@Autowired
+	private SciCalculator sclc;
+
+	@Test
+	public void shouldAdd2Nums() {
+		Assertions.assertEquals(15,sclc.add(1,2,3,4,5));
+	}
+}

@@ -1,0 +1,5 @@
+package com.flight.security.model;
+
+public class JwtResponse {
+
+}

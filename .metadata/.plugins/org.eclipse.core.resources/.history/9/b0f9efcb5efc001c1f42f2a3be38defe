@@ -1,0 +1,68 @@
+package com.flight.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//@Entity
+//@Table(name="Booking_Details")
+public class BookingEntity {
+	
+	@Id
+	private Long pnr;
+	private String email;
+	//private String name;
+	private int totalBooking;
+	private String bookingStatus;
+	//private Date bookingDate;
+	//private Date sheduleDate;
+	
+	
+	public BookingEntity(Long pnr, String email, int totalBooking, String bookingStatus) {
+		super();
+		this.pnr = pnr;
+		this.email = email;
+		this.totalBooking = totalBooking;
+		this.bookingStatus = bookingStatus;
+	}
+	public BookingEntity() {
+		super();
+	}
+	public Long getPnr() {
+		return pnr;
+	}
+	public void setPnr(Long pnr) {
+		this.pnr = pnr;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getTotalBooking() {
+		return totalBooking;
+	}
+	public void setTotalBooking(int totalBooking) {
+		this.totalBooking = totalBooking;
+	}
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
+	@Override
+	public String toString() {
+		return "BookingEntity [pnr=" + pnr + ", email=" + email + ", totalBooking=" + totalBooking + ", bookingStatus="
+				+ bookingStatus + "]";
+	}
+	
+	
+	
+	
+	
+	
+}

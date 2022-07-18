@@ -1,0 +1,48 @@
+package com.userFlight.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.userFlight.entity.SearchEntity;
+import com.userFlight.entity.UserEntity;
+import com.userFlight.service.UserService;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+	@Autowired 
+	UserService userService;
+	
+	
+	@GetMapping("/Welcome user")
+	public String welcome() {
+		return "Welcom user";
+	}
+	
+	@PostMapping("/search")
+	public List<SearchEntity> searchFlight(@RequestBody SearchEntity search){
+	
+		String start=search.getStart();
+		String end=search.getEnd();
+		return userService.searchFlight(start,end);
+	}
+	
+	@PostMapping("/book/{flightNo}")
+	public Long bookTicket(@RequestBody UserEntity user){
+		
+		String status=(user.getBookingStatus().toUpperCase()).trim();		
+		user.setBookingStatus(status);
+	
+		userService.bookTicket(user);	
+		System.out.println(user.getPnr());
+		return user.getPnr();
+	}
+	
+}

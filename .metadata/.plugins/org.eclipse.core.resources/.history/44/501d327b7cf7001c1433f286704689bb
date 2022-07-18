@@ -1,0 +1,35 @@
+package com.security.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class JWTController {
+	
+	@GetMapping("/")
+	public String greet() {
+		return "Welcome User";
+	}
+	
+	@GetMapping("manager")
+	public String greet(@PathVariable String username) {
+		return "Welcome "+username;
+	}
+	@GetMapping("admin")
+	public String onlyForAdmin() {
+		return "Welcome Admin";
+	}
+	
+	@GetMapping("manager")
+	public String onlyForManager() {
+		return "Welcome Manager";
+	}
+	
+	
+	
+	@GetMapping("all")
+	public String all(@PathVariable String username) {
+		return "Welcome "+username;
+	}
+}

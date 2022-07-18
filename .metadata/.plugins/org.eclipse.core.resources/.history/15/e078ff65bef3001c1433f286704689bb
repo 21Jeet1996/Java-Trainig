@@ -1,0 +1,13 @@
+package com.BookManagement.service;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.BookManagement.Entity.BookEntity;
+
+
+public interface BookRepository extends JpaRepository<BookEntity, Double>{
+
+	public List<BookEntity> findByPrice(Double price);
+}

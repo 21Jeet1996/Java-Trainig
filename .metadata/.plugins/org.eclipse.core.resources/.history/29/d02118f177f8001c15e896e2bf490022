@@ -1,0 +1,5 @@
+package com.flightService.entity;
+
+public class FlightEntity {
+
+}

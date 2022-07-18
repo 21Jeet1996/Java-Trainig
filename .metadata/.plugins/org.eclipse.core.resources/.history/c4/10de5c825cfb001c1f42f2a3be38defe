@@ -1,0 +1,102 @@
+package com.flight.entity;
+
+
+
+import java.sql.Date;
+import java.sql.Time;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Flight_Details")
+public class FlightEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long flightNo;
+	private String airline;
+	private String from;
+	private String destination;
+	/*private Date startDate;
+	private Time startTime;
+	private Date endDate;
+	private Time endtTime;*/
+	private String sheduleDay;
+	private int bussinessSeat;
+	private int nonBussinessSeat;
+	private double price;
+	
+	
+	public FlightEntity() {
+		super();
+	}
+	public FlightEntity(Long flightNo, String airline, String from, String destination, String sheduleDay,
+			int bussinessSeat, int nonBussinessSeat, double price) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.from = from;
+		this.destination = destination;
+		this.sheduleDay = sheduleDay;
+		this.bussinessSeat = bussinessSeat;
+		this.nonBussinessSeat = nonBussinessSeat;
+		this.price = price;
+	}
+	public Long getFlightNo() {
+		return flightNo;
+	}
+	public void setFlightNo(Long flightNo) {
+		this.flightNo = flightNo;
+	}
+	public String getAirline() {
+		return airline;
+	}
+	public void setAirline(String airline) {
+		this.airline = airline;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	public String getDestination() {
+		return destination;
+	}
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+	public String getSheduleDay() {
+		return sheduleDay;
+	}
+	public void setSheduleDay(String sheduleDay) {
+		this.sheduleDay = sheduleDay;
+	}
+	public int getBussinessSeat() {
+		return bussinessSeat;
+	}
+	public void setBussinessSeat(int bussinessSeat) {
+		this.bussinessSeat = bussinessSeat;
+	}
+	public int getNonBussinessSeat() {
+		return nonBussinessSeat;
+	}
+	public void setNonBussinessSeat(int nonBussinessSeat) {
+		this.nonBussinessSeat = nonBussinessSeat;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,16 @@
+package com.BookManagement.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.BookManagement.Entity.BookEntity;
+
+
+public interface BookRepository extends JpaRepository<BookEntity, Integer>{
+
+	@Query(value="select b from BookEntity b where b.price=?1", nativeQuery=false)
+	public BookEntity findByPrice(Double price);
+}

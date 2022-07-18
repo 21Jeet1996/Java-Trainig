@@ -1,0 +1,66 @@
+<h3>Check your booking status</h3>
+
+<div >
+  <form>
+    <table>
+        <thead>
+            <th> <div class="form-group">
+                <label for="name">email</label>
+                <input type="email" class="form-control" id="email"  [(ngModel)]="email" name="email">
+              </div>
+      
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <button type="submit" class="btn btn-success" name="submit-reg" value="Register"(click)="checkTicket()">Search</button>
+            </th>
+        </thead>
+    </table>
+  </form>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body" *ngIf="errorMessage>0">
+      <div style="text-align: center">
+        <h1>{{errorMessage}}</h1>
+    </div>
+    </div>
+    <div class="panel-body" *ngIf="books.length>0">
+        <div class="panel-heading" style="text-align: center">
+            <h2>Flight List</h2>
+        </div>
+      <table class="table table-striped" border="1">
+           
+        <thead>
+          <tr>
+            <th>PNR</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name </th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Toatal Seat</th>
+            <th>Booking Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{book.pnr}}</td>
+            <td>{{book.email}}</td>
+            <td>{{book.firstName}}</td>
+            <td>{{book.lastName}}</td>
+            <td>{{book.gender}}</td>
+            <td>{{book.age}}</td>
+            <td>{{book.totalSeat}}</td>
+            <td>{{book.bookingStatus}}</td>
+            <td><button (click)="cancelTicket(book.pnr)" class="btn btn-danger">Cancel</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

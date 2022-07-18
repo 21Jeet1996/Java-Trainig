@@ -1,0 +1,90 @@
+package com.userFlight.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_Details")
+public class UserEntity {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="1000000000")
+	private String pnr;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String gender;
+	private int age;
+	private int totalSeat;
+	private int seatNo;
+	
+	
+	public UserEntity() {
+		super();
+	}
+	public UserEntity(String pnr, String email, String firstName, String lastName, String gender, int age,
+			int totalSeat, int seatNo) {
+		super();
+		this.pnr = pnr;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.age = age;
+		this.totalSeat = totalSeat;
+		this.seatNo = seatNo;
+	}
+	public String getPnr() {
+		return pnr;
+	}
+	public void setPnr(String pnr) {
+		this.pnr = pnr;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getTotalSeat() {
+		return totalSeat;
+	}
+	public void setTotalSeat(int totalSeat) {
+		this.totalSeat = totalSeat;
+	}
+	public int getSeatNo() {
+		return seatNo;
+	}
+	public void setSeatNo(int seatNo) {
+		this.seatNo = seatNo;
+	}
+	
+	
+}

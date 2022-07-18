@@ -1,0 +1,18 @@
+package com.flight.kafka.services;
+
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+import com.flight.entity.BookingEntity;
+
+@Service
+public class KafkaConsumerService {
+	 private static final String TOPIC = "flight-service";
+
+	    @KafkaListener(topics = TOPIC, groupId="group_id")//, containerFactory = "userKafkaListenerFactory")
+	    public void consumeJson(BookingEntity bookingEntity) {
+	    	System.out.println("88888888888888888888888888888888888888888888888888888888888888888888888888888888888");
+	        System.out.println("Consumed JSON Message: " + bookingEntity.getBookingStatus()+" "+bookingEntity.getEmail()+" "+bookingEntity.getPnr()+" "+bookingEntity.getTotalBooking());
+	    }
+	    
+}

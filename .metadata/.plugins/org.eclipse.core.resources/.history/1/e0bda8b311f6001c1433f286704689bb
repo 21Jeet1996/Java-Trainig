@@ -1,0 +1,47 @@
+package com.BookManagement.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.BookManagement.Entity.BookEntity;
+import com.BookManagement.exception.BookNotFoundException;
+
+@Service
+public class BookService implements IBookService{
+																																																												
+	private BookRepository bookRepository;
+
+	public BookService(BookRepository bookRepository) {
+		super();
+		this.bookRepository = bookRepository;
+	}
+	
+	public BookEntity addBook(BookEntity book) {
+		return bookRepository.save(book);
+	}
+	
+	public List<BookEntity> findByPrice(Double price){
+	
+		
+		return bookRepository.findByPrice(price);
+	}
+	
+	public List<BookEntity> getBook(){
+		
+		return bookRepository.findAll();
+	}
+	public BookEntity getById(int id) throws BookNotFoundException{
+		
+		Optional<BookEntity> optional= bookRepository.findById(id);
+		if(optional.isEmpty()) {
+			new BookNotFoundException("Book Not Found!!");
+		}
+		else {
+			optional.get();
+		}
+	}
+	
+	
+}

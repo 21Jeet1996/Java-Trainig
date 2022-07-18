@@ -1,0 +1,5 @@
+package com.userFlight.service;
+
+public class UserService {
+
+}

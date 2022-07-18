@@ -1,0 +1,5 @@
+package com.flight.security.utils;
+
+public class JwtTokenUtil {
+
+}

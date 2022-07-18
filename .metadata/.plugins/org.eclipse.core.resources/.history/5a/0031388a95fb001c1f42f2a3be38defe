@@ -1,0 +1,41 @@
+package com.userFlight.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="Flight_Details")
+public class SearchEntity {
+
+	@Id
+	@NotNull(message="this can't be null")
+	private int flightNo;
+	@NotEmpty(message="This field can't be empty")
+	private String airline;
+	@NotEmpty(message="This field can't be empty")
+	private String start;
+	@NotEmpty(message="This field can't be empty")
+	private String end;
+	//@NotEmpty(message="This field can't be empty")
+	private Date startDate;
+	@NotEmpty(message="This field can't be empty")
+	private String startTime;
+	//@NotEmpty(message="This field can't be empty")
+	private Date endDate;
+	@NotEmpty(message="This field can't be empty")
+	private String endtTime;
+	@NotEmpty(message="This field can't be empty")
+	private String sheduleDay;
+	@NotNull(message="This field can't be empty")
+	private int bussinessSeat;
+	@NotNull(message="This field can't be empty")
+	private int nonBussinessSeat;
+	@NotNull(message="This field can't be empty")
+	private double price;
+	
+}

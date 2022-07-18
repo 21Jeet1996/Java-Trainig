@@ -1,0 +1,21 @@
+package com.test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest; 
+
+@SpringBootTest
+public class TestCalculator {
+	
+	@Autowired
+	private Calculator clc;
+
+	@Test
+	public void shouldul2Num() {
+		int x=4, y=15;
+		int actual=clc.mul(x, y);
+		int expected=61;
+		Assertions.assertEquals(expected, actual);
+	}
+}

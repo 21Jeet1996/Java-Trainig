@@ -1,0 +1,5 @@
+package com.BookManagement.Entity;
+
+public class BookEntity {
+
+}

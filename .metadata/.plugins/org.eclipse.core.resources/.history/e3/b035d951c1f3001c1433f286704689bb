@@ -1,0 +1,5 @@
+package com.BookManagement.model;
+
+public class ErrorMessage {
+
+}

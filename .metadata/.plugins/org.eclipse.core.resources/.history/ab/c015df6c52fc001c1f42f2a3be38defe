@@ -1,0 +1,15 @@
+package com.flight.kafka.counsumerServices;
+
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafkaConsumerService {
+	 private static final String TOPIC = "flight-service";
+
+	    @KafkaListener(topics = TOPIC, groupId="group_id", containerFactory = "userKafkaListenerFactory")
+	    public void consumeJson(BookingEntity bookingEntity) {
+	        System.out.println("Consumed JSON Message: " + bookingEntity);
+	    }
+	    
+}

@@ -1,0 +1,12 @@
+package com.flight.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FlightController {
+
+	@GetMapping("/")
+	public String helloEureka() {
+		return "Welcome to Eureka server";
+	}
+}

@@ -1,0 +1,9 @@
+package com.BookManagement.model;
+
+import java.time.LocalDateTime;
+
+public class ErrorMessage {
+	 private String message;
+	 private LocalDateTime time;
+	 private String exception;
+}

@@ -1,0 +1,15 @@
+package com.flight.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+//@Entity
+//@Table(name="Booking_Details")
+public class BookingEntity {
+	
+//	private Long pnr;
+//	private String email;
+//	private String name;
+//	private int totalSeat;
+//	private String bokkingStatus;
+}

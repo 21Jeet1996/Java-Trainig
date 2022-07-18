@@ -1,0 +1,29 @@
+spring.application.name=flight-gateway
+server.port=9090
+
+spring.cloud.discovery.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id= true
+spring.cloud.gateway.discovery.locator.enabled= true
+eureka.instance.prefer-ip-address=true
+
+
+eureka.client.serviceUrl.defaultZone= ${EUREKA_URI:http://localhost:8762/eureka}
+#eureka.client.serviceUrl.defaultZone= ${EUREKA_URI:http://ec2-34-215-108-20.us-west-2.compute.amazonaws.com:8762/eureka}
+
+
+# localhost:9090/flight
+spring.cloud.gateway.routes[0].id=flight-service
+spring.cloud.gateway.routes[0].uri=lb://FLIGHT-SERVICE/
+spring.cloud.gateway.routes[0].predicates[0]=Path=/flight/**
+
+#localhost:9090/authenticate/login
+spring.cloud.gateway.routes[1].id=flight-security
+spring.cloud.gateway.routes[1].uri=lb://FLIGHT-SERVICE/
+spring.cloud.gateway.routes[1].predicates[0]=Path=/authenticate/**
+
+#localhost:9090/user
+spring.cloud.gateway.routes[2].id=user-service
+spring.cloud.gateway.routes[2].uri=lb://USER-SERVICE/
+spring.cloud.gateway.routes[2].predicates[0]=Path=/user/**
+
+

@@ -1,0 +1,5 @@
+package com.userFlight.repository;
+
+public interface SearchRepository extends JpaRepository<SearchEntity,Long>{
+
+}

@@ -1,0 +1,17 @@
+package com.BookManagement.globalException;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.BookManagement.exception.BookNotFoundException;
+import com.BookManagement.model.ErrorMessage;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	
+	@ExceptionHandler(BookNotFoundException.class)
+	public ResponseEntity<ErrorMessage> excepctionHandler(BookNotFoundException exception){
+		
+	}
+}

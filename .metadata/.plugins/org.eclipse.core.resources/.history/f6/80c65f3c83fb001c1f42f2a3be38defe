@@ -1,0 +1,6 @@
+package com.userFlight.controller;
+
+@RestController
+public class UserController {
+	
+}

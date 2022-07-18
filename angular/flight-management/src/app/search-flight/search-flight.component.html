@@ -1,0 +1,80 @@
+<h3>Search Flight</h3>
+
+<!-- <div style="text-align: center">
+    <h1>{{message}}</h1>
+</div> -->
+<div >
+  <form>
+    <table>
+        <thead>
+            <th> <div class="form-group">
+                <label for="name">From</label>
+                <input type="text" class="form-control" id="start"  [(ngModel)]="start" name="start">
+              </div>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <div class="form-group">
+                    <label for="name">To</label>
+                    <input type="text" class="form-control" id="end"  [(ngModel)]="end" name="end">
+                  </div>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <button type="submit" class="btn btn-success" name="submit-reg" value="Register"(click)="searchFlight()">Search</button>
+            </th>
+        </thead>
+    </table>
+  </form>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body" *ngIf="searches.length==0">
+        <div class="panel-heading" style="text-align: center">
+            <h2>Search Not Found</h2>
+        </div>
+    </div>
+    <div class="panel-body" *ngIf="searches.length>0">
+        <div class="panel-heading" style="text-align: center">
+            <h2>Flight List</h2>
+        </div>
+      <table class="table table-striped" border="1">
+           
+        <thead>
+          <tr>
+            <th>Flight Number</th>
+            <th>Flight Name</th>
+            <th>From</th>
+            <th>End</th>
+            <th>Shedule Date</th>
+            <th>Shedule Time</th>
+            <th>Shedule Day</th>
+            <th>Price</th>
+            <th>Flight Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let search of searches">
+            <td>{{search.flightNo}}</td>
+            <td>{{search.airline}}</td>
+            <td>{{search.start}}</td>
+            <td>{{search.end}}</td>
+            <td>{{search.startDate}}</td>
+            <td>{{search.startTime}}</td>
+            <td>{{search.sheduleDay}}</td>
+            <td>{{search.price}}</td>
+            <td>{{search.flightStatus}}</td>
+            <td><button [routerLink]="['/book-flight',search.flightNo]" class="btn btn-danger">Book Flight</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

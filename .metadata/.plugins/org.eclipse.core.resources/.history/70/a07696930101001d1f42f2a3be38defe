@@ -1,0 +1,5 @@
+package com.APIGateway.swegger;
+
+public class SwaggerConfig {
+
+}

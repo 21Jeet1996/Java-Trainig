@@ -1,0 +1,13 @@
+package com.BookManagement.service;
+
+import java.util.List;
+
+import com.BookManagement.Entity.BookEntity;
+
+public interface IBookService {
+	
+	public BookEntity addBook(BookEntity book);
+	
+	List<BookEntity> getBook();
+	
+}

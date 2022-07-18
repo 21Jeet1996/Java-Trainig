@@ -1,0 +1,5 @@
+package com.BookManagement.globalException;
+
+public class GlobalExceptionHandler {
+
+}

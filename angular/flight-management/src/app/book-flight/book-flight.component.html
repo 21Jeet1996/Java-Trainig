@@ -1,0 +1,51 @@
+<h3>Book Flight</h3>
+
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+<div style="text-align: center">
+    <h1>{{errorMessage}}</h1>
+</div>
+<div> 
+    <form>  
+        <div class="form-group">
+            <label for="name">Flight Number</label>
+            <input type="email" class="form-control" id="flightNo" value="book.flightNo" [(ngModel)]="book.flightNo" name="flightNo" disabled>
+        </div>
+
+        <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" class="form-control" id="email"  [(ngModel)]="book.email" name="email">
+        </div>
+
+        <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="firstName"  [(ngModel)]="book.firstName" name="firstName">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Last Name</label>
+            <input type="text" class="form-control" id="lastName"  [(ngModel)]="book.lastName" name="lastName">
+        </div>
+
+        <div class="form-group">
+            <label for="branch">Gender</label>
+            <!-- <input type="text" class="form-control" id="gender"  [(ngModel)]="book.gender" name="gender"> -->
+           <select class="form-controll" id="gender"  [(ngModel)]="book.gender" name="gender">
+                <option value="null">Select Gender</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+           </select>
+           
+        </div>
+
+        <div class="form-group">
+            <label for="name">Age</label>
+            <input type="text" class="form-control" id="age"  [(ngModel)]="book.age" name="age">
+        </div>
+
+
+        <button type="submit" class="btn btn-success" name="submit-reg" value="Register"(click)="boolkTicket()">Confirm</button>
+  </form>
+</div>
+

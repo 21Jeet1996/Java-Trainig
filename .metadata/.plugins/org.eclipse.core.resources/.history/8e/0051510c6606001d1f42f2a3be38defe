@@ -1,0 +1,28 @@
+package com.APIGateway.swagger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
+
+import springfox.documentation.swagger.web.SwaggerResource;
+import springfox.documentation.swagger.web.SwaggerResourcesProvider;
+
+public class SwaggerProvider implements SwaggerResourcesProvider{
+
+	public static final String apiUrl="v3/api-docs";
+	public static final String gateway="flight-gateway";
+	public final RouteDefinitionLocator locator;
+	
+	
+
+	@Override
+	public List<SwaggerResource> get() {
+		// TODO Auto-generated method stub
+		String apiGateway="/"+gateway;
+		List<SwaggerResource> list=new ArrayList<>();
+		((List<SwaggerResource>) locator.getRouteDefinitions().subscribe()).get(0).getClass().get("_genkey_0").replace("/**",apiUrl);
+		return null;
+	}
+
+}

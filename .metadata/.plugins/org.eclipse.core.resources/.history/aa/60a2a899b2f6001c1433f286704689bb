@@ -1,0 +1,21 @@
+package com.test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+@SpringBootTest
+public class TestSciCalculator {
+	@Autowired
+	private SciCalculator sclc;
+	
+	@MockBean //removing the calculator
+	private Calculator clc;
+
+	@Test
+	public void shouldAdd2Nums() {
+		Assertions.assertEquals(15,sclc.add(1,2,3,4,5));
+	}
+}

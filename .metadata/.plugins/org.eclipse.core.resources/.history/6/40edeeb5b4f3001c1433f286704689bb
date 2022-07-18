@@ -1,0 +1,20 @@
+package com.BookManagement.Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="BookDetails")
+public class BookEntity {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	private String tital;
+	private String author;
+	private Double price;
+
+}

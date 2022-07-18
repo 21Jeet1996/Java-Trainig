@@ -1,0 +1,301 @@
+package com.flight.entity;
+
+
+
+import java.sql.Date;
+import java.sql.Time;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="Flight_Details")
+public class FlightEntity {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int flightNo;
+	private String airline;
+	private String start;
+	private String end;
+	private Date startDate;
+    @Temporal(TemporalType.TIME)
+	private Time startTime;
+	private Date endDate;
+	private Time endtTime;
+	private String sheduleDay;
+	private int bussinessSeat;
+	private int nonBussinessSeat;
+	private double price;
+	
+	
+	public FlightEntity() {
+		super();
+	}
+	public FlightEntity(int flightNo, String airline, String start, String end, Date startDate, Time startTime,
+			Date endDate, Time endtTime, String sheduleDay, int bussinessSeat, int nonBussinessSeat, double price) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.start = start;
+		this.end = end;
+		this.startDate = startDate;
+		this.startTime = startTime;
+		this.endDate = endDate;
+		this.endtTime = endtTime;
+		this.sheduleDay = sheduleDay;
+		this.bussinessSeat = bussinessSeat;
+		this.nonBussinessSeat = nonBussinessSeat;
+		this.price = price;
+	}
+	public int getFlightNo() {
+		return flightNo;
+	}
+	public void setFlightNo(int flightNo) {
+		this.flightNo = flightNo;
+	}
+	public String getAirline() {
+		return airline;
+	}
+	public void setAirline(String airline) {
+		this.airline = airline;
+	}
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getEnd() {
+		return end;
+	}
+	public void setEnd(String end) {
+		this.end = end;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Time getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Time startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public Time getEndtTime() {
+		return endtTime;
+	}
+	public void setEndtTime(Time endtTime) {
+		this.endtTime = endtTime;
+	}
+	public String getSheduleDay() {
+		return sheduleDay;
+	}
+	public void setSheduleDay(String sheduleDay) {
+		this.sheduleDay = sheduleDay;
+	}
+	public int getBussinessSeat() {
+		return bussinessSeat;
+	}
+	public void setBussinessSeat(int bussinessSeat) {
+		this.bussinessSeat = bussinessSeat;
+	}
+	public int getNonBussinessSeat() {
+		return nonBussinessSeat;
+	}
+	public void setNonBussinessSeat(int nonBussinessSeat) {
+		this.nonBussinessSeat = nonBussinessSeat;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
+	
+}
+
+	
+	
+	
+
+	/*private Date startDate;
+	private Time startTime;
+	private Date endDate;
+	private Time endtTime;
+	private String sheduleDay;
+	private int bussinessSeat;
+	private int nonBussinessSeat;
+	private double price;
+	
+	
+	public FlightEntity() {
+		super();
+	}
+
+
+	public FlightEntity(Long flightNo, String airline, String from, String destination, Date startDate, Time startTime,
+			Date endDate, Time endtTime, String sheduleDay, int bussinessSeat, int nonBussinessSeat, double price) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.from = from;
+		this.destination = destination;
+		this.startDate = startDate;
+		this.startTime = startTime;
+		this.endDate = endDate;
+		this.endtTime = endtTime;
+		this.sheduleDay = sheduleDay;
+		this.bussinessSeat = bussinessSeat;
+		this.nonBussinessSeat = nonBussinessSeat;
+		this.price = price;
+	}
+
+
+	public Long getFlightNo() {
+		return flightNo;
+	}
+
+
+	public void setFlightNo(Long flightNo) {
+		this.flightNo = flightNo;
+	}
+
+
+	public String getAirline() {
+		return airline;
+	}
+
+
+	public void setAirline(String airline) {
+		this.airline = airline;
+	}
+
+
+	public String getFrom() {
+		return from;
+	}
+
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+
+	public String getDestination() {
+		return destination;
+	}
+
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+
+	public Time getStartTime() {
+		return startTime;
+	}
+
+
+	public void setStartTime(Time startTime) {
+		this.startTime = startTime;
+	}
+
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public Time getEndtTime() {
+		return endtTime;
+	}
+
+
+	public void setEndtTime(Time endtTime) {
+		this.endtTime = endtTime;
+	}
+
+
+	public String getSheduleDay() {
+		return sheduleDay;
+	}
+
+
+	public void setSheduleDay(String sheduleDay) {
+		this.sheduleDay = sheduleDay;
+	}
+
+
+	public int getBussinessSeat() {
+		return bussinessSeat;
+	}
+
+
+	public void setBussinessSeat(int bussinessSeat) {
+		this.bussinessSeat = bussinessSeat;
+	}
+
+
+	public int getNonBussinessSeat() {
+		return nonBussinessSeat;
+	}
+
+
+	public void setNonBussinessSeat(int nonBussinessSeat) {
+		this.nonBussinessSeat = nonBussinessSeat;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "FlightEntity [flightNo=" + flightNo + ", airline=" + airline + ", from=" + from + ", destination="
+				+ destination + ", startDate=" + startDate + ", startTime=" + startTime + ", endDate=" + endDate
+				+ ", endtTime=" + endtTime + ", sheduleDay=" + sheduleDay + ", bussinessSeat=" + bussinessSeat
+				+ ", nonBussinessSeat=" + nonBussinessSeat + ", price=" + price + "]";
+	}
+	
+	
+	
+}*/

@@ -1,0 +1,9 @@
+package com.userFlight.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.userFlight.entity.SearchEntity;
+
+public interface SearchRepository extends JpaRepository<SearchEntity,Long>{
+
+}

@@ -1,0 +1,26 @@
+package com.flight.entity;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class FlightEntity {
+
+	@Id
+	private Long flightNo;
+	private String airline;
+	private String from;
+	private String destination;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;	
+	private String sheduleDay;
+	private Long businessClass;
+	private Long nonBusinessClass;
+	private Double price;
+	
+	
+}

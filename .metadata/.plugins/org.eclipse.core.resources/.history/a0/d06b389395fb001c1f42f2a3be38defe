@@ -1,0 +1,23 @@
+package com.userFlight.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.userFlight.entity.SearchEntity;
+import com.userFlight.service.UserService;
+
+@RestController
+public class UserController {
+	
+	@Autowired 
+	UserService userService;
+	
+	@PostMapping("/search")
+	List<SearchEntity> searchFlight(@RequestBody ){
+		return userService.g
+	}
+	
+}

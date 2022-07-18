@@ -1,0 +1,73 @@
+package com.userFlight.kafka.model;
+
+public class UserFlight {
+
+	private Long pnr;
+	private String email;
+	private String bookinStatus;
+	private int totalBooking;
+	
+	
+	public UserFlight() {
+		super();
+	}
+
+
+	public UserFlight(Long pnr, String email, String bookinStatus, int totalBooking) {
+		super();
+		this.pnr = pnr;
+		this.email = email;
+		this.bookinStatus = bookinStatus;
+		this.totalBooking = totalBooking;
+	}
+
+
+	public Long getPnr() {
+		return pnr;
+	}
+
+
+	public void setPnr(Long pnr) {
+		this.pnr = pnr;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getBookinStatus() {
+		return bookinStatus;
+	}
+
+
+	public void setStatus(String bookinStatus) {
+		this.bookinStatus = bookinStatus;
+	}
+
+
+	public int getTotalBooking() {
+		return totalBooking;
+	}
+
+
+	public void setTotalBooking(int totalBooking) {
+		this.totalBooking = totalBooking;
+	}
+
+
+	@Override
+	public String toString() {
+		return "UserFlight [pnr=" + pnr + ", email=" + email + ", status=" + status + ", totalBooking=" + totalBooking
+				+ "]";
+	}
+	
+	
+	
+}

@@ -1,0 +1,72 @@
+package com.userFlight.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.userFlight.entity.SearchEntity;
+import com.userFlight.entity.UserEntity;
+import com.userFlight.repository.BookingRepository;
+import com.userFlight.repository.SearchRepository;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private SearchRepository repo;
+	
+	@Autowired
+	private BookingRepository bookRepo;
+	
+	public List<SearchEntity> searchFlight(String start,String end){
+		return repo.findByStartEnd(start, end);
+	}
+	
+	public SearchEntity bookFlight(int flightNo){
+		Optional<SearchEntity> optional=repo.findById(flightNo);
+		if(optional.isEmpty()) {
+			System.out.println("hiiiiiii");
+			return null;
+		}
+		else {
+			return optional.get();
+
+		}
+	}
+	
+	public List<UserEntity> checkTicket(String email){
+//		Optional<UserEntity> optional=bookRepo.findByEmail(email);
+//		if(optional.isEmpty()) {
+//			System.out.println("hiiiiiii");
+//			return null;
+//		}
+//		else {
+//			return optional.get();
+//
+//		}
+		bookRepo.findByEmail(email);
+	}
+	
+	
+	public UserEntity bookTicket(UserEntity user) {
+//		
+		//Long pnr=user.getPnr()+1000000000;
+		//user.setPnr(pnr);	
+		 Long pnr = (long) (Math.floor(Math.random()*1000000000));
+		 user.setPnr(pnr);
+		return bookRepo.save(user);
+	}
+	
+	public String cancelFlight(Long pnr,String bookingStatus) {
+		UserEntity user=bookRepo.findById(pnr).get();
+		if(user.getPnr()!=0) {
+			user.setBookingStatus(bookingStatus);
+		}else {
+			return "You enter incorrect PNR number";
+		}
+		bookRepo.save(user);
+		return "Booking of your flight with PNR: "+pnr+" cancel successfully!";
+	}
+}

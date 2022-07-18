@@ -1,0 +1,23 @@
+package com.BookManagement.service;
+
+import org.springframework.stereotype.Service;
+
+import com.BookManagement.Entity.BookEntity;
+
+@Service
+public class BookService {
+	
+	private BookRepository bookRepository;
+
+	public BookService(BookRepository bookRepository) {
+		super();
+		this.bookRepository = bookRepository;
+	}
+	
+	public BookEntity addBook(BookEntity book) {
+		return bookRepository.save(book);
+	}
+
+	
+	
+}

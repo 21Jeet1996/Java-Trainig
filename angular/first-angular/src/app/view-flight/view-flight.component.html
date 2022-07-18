@@ -1,0 +1,51 @@
+
+<table>
+    <thead>
+        <div >
+            <!-- [hidden]="submitted" style="width: 400px;"> -->
+          <!-- <form > -->
+            <form >  
+                <th>           
+                    <div class="form-group">
+                        <label for="name">Id</label>
+                        <input type="text" class="form-control" id="id" [(ngModel)]="id" name="id">
+                    </div>
+        </th>
+            <th>
+                <button type="button" class="btn btn-danger"  (click)="getById()">Submit</button>
+            </th>
+        <!-- value="Register" 
+            name="submit-reg" -->
+        </form>
+        </div>
+      </thead>
+</table>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Flight List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+          
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Flight Name</th>
+            <th>Airline Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>{{flight.id}}</td>
+            <td>{{flight.flightName}}</td>
+            <td>{{flight.airlineName}}</td>
+            <td><button (click)="deleteById(flight.id)" class="btn btn-danger">Delete</button>
+                <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

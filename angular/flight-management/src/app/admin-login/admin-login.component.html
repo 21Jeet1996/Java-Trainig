@@ -1,0 +1,22 @@
+<h3>Admin Login</h3>
+<div style="text-align: center">
+    <h1>{{response}}</h1>
+</div>
+<div> 
+    <form>  
+        <div class="form-group">
+            <label for="name">User Name</label>
+            <input type="email" class="form-control" id="username" [(ngModel)]="login.username" name="username" >
+        </div>
+
+        <div class="form-group">
+        <label for="name">Password</label>
+        <input type="password" class="form-control" id="password"  [(ngModel)]="login.password" name="password">
+        </div>
+
+        <!-- [routerLink]="['/add-flight']" -->
+        <button  type="submit" class="btn btn-success" name="submit-reg" value="Register"(click)="checkLogin()">Confirm</button>
+  </form>
+
+  <!--  [routerLink]="['/add-flight']" -->
+</div>

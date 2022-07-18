@@ -1,0 +1,128 @@
+package com.flight.entity;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Flight_Details")
+public class FlightEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int flightNo;
+	private String airline;
+	private String from;
+	private String destination;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;	
+	private String sheduleDay;
+	private Long businessClass;
+	private Long nonBusinessClass;
+	private Double price;
+	
+	public FlightEntity() {
+		super();
+	}
+
+	public FlightEntity(int flightNo, String airline, String from, String destination, LocalDateTime startDate,
+			LocalDateTime endDate, String sheduleDay, Long businessClass, Long nonBusinessClass, Double price) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.from = from;
+		this.destination = destination;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.sheduleDay = sheduleDay;
+		this.businessClass = businessClass;
+		this.nonBusinessClass = nonBusinessClass;
+		this.price = price;
+	}
+
+	public int getFlightNo() {
+		return flightNo;
+	}
+
+	public void setFlightNo(int flightNo) {
+		this.flightNo = flightNo;
+	}
+
+	public String getAirline() {
+		return airline;
+	}
+
+	public void setAirline(String airline) {
+		this.airline = airline;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getSheduleDay() {
+		return sheduleDay;
+	}
+
+	public void setSheduleDay(String sheduleDay) {
+		this.sheduleDay = sheduleDay;
+	}
+
+	public Long getBusinessClass() {
+		return businessClass;
+	}
+
+	public void setBusinessClass(Long businessClass) {
+		this.businessClass = businessClass;
+	}
+
+	public Long getNonBusinessClass() {
+		return nonBusinessClass;
+	}
+
+	public void setNonBusinessClass(Long nonBusinessClass) {
+		this.nonBusinessClass = nonBusinessClass;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	
+}

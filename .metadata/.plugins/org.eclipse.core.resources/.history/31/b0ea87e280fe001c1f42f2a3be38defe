@@ -1,0 +1,62 @@
+package com.flight.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.flight.entity.FlightEntity;
+
+@Service
+public class FlightService implements IFlightService{
+	private FlightRepository flightRepository;
+	
+	public FlightService(FlightRepository flightRepository) {
+		super();
+		this.flightRepository = flightRepository;
+	}
+
+	public FlightEntity addFlight(FlightEntity flight) {
+		return flightRepository.save(flight);
+	}
+	
+
+	
+	public List<FlightEntity> getFlight() {
+		// TODO Auto-generated method stub
+		return flightRepository.findAll();
+	}
+	public List<FlightEntity> getById(int id) {
+		Optional<FlightEntity> optional=flightRepository.findById(id);
+		if(optional.isEmpty()) {
+			return null;
+		}
+		List<FlightEntity> list=new ArrayList<>();
+		
+		list.add(optional.get());
+		return list;
+	}
+
+	
+	public FlightEntity updateFlight(FlightEntity flight, Integer id) {
+		// TODO Auto-generated method stub
+		FlightEntity fEntity=flightRepository.findById(id).get();
+		if(fEntity.getId()!=0) {
+			fEntity.setFlightName(flight.getFlightName());
+			fEntity.setAirlineName(flight.getAirlineName());
+		}
+		flightRepository.save(fEntity);
+		return fEntity;
+	}
+
+
+	public void deletFlight(Integer id) {
+		// TODO Auto-generated method stub
+		flightRepository.deleteById(id);
+		
+	}
+	
+
+
+}

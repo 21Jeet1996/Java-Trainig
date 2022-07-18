@@ -1,0 +1,20 @@
+package com.userFlight.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.userFlight.entity.SearchEntity;
+import com.userFlight.repository.SearchRepository;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private SearchRepository repo;
+	
+	List<SearchEntity> searchFlight(String start,String end){
+		return repo.findByStartEnd(start, end);
+	}
+}

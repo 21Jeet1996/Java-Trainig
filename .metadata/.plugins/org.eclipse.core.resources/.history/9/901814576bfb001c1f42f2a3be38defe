@@ -1,0 +1,5 @@
+package com.flight.error.exception;
+
+public class FlightNotFoundException {
+
+}

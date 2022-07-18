@@ -1,0 +1,60 @@
+<h3>Add Flight</h3>
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+<div> 
+    <form>  
+        <div class="form-group">
+            <label for="name">Flight Number</label>
+            <input type="email" class="form-control" id="flightNo"  [(ngModel)]="flight.flightNo" name="flightNo" >
+        </div>
+
+        <div class="form-group">
+        <label for="name">Flight Name</label>
+        <input type="text" class="form-control" id="airline"  [(ngModel)]="flight.airline" name="airline">
+        </div>
+
+        <div class="form-group">
+        <label for="name">From</label>
+        <input type="text" class="form-control" id="start"  [(ngModel)]="flight.start" name="start">
+        </div>
+
+        <div class="form-group">
+            <label for="name">To</label>
+            <input type="text" class="form-control" id="end"  [(ngModel)]="flight.end" name="end">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Start Date</label>
+            <input type="date" class="form-control" id="startDate"  [(ngModel)]="flight.startDate" name="startDate">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Start Time</label>
+            <input type="text" class="form-control" id="startTime"  [(ngModel)]="flight.startTime" name="startTime">
+        </div>
+
+        <div class="form-group">
+            <label for="name">End Date</label>
+            <input type="date" class="form-control" id="endDate"  [(ngModel)]="flight.endDate" name="endDate">
+        </div>
+
+        <div class="form-group">
+            <label for="name">End Time</label>
+            <input type="text" class="form-control" id="endtTime"  [(ngModel)]="flight.endtTime" name="endtTime">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Running Day</label>
+            <input type="text" class="form-control" id="sheduleDay"  [(ngModel)]="flight.sheduleDay" name="sheduleDay">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Ticket Price</label>
+            <input type="number" class="form-control" id="price"  [(ngModel)]="flight.price" name="price">
+        </div>
+
+        <button type="submit" class="btn btn-success" name="submit-reg" value="Register"(click)="addFlight()">Confirm</button>
+  </form>
+</div>
+

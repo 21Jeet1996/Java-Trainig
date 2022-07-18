@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.security&apos; to &apos;com.APIGateway&apos;&#x0D;&#x0A;- Original project: &apos;Flight-APIGateway&apos;&#x0D;&#x0A;- Original element: &apos;Flight-APIGateway/src/main/java/com.security&apos;&#x0D;&#x0A;- Renamed element: &apos;Flight-APIGateway/src/main/java/com.APIGateway&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings&#x0D;&#x0A;- Rename subpackages of the package" description="Rename package &apos;com.security&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.security" name="com.APIGateway" qualified="false" references="true" stamp="1656593382303" textual="false" version="1.0"/>
+</session>
